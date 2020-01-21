@@ -28,6 +28,18 @@ class Game:
             if event.type == QUIT:
                 self.gameOver()
 
+            if event.type == KEYDOWN:
+                if event.key == K_LEFT:
+                    self.player.go_left()
+                if event.key == K_RIGHT:
+                    self.player.go_right()
+        
+        keys_pressed = pg.key.get_pressed()
+        if keys_pressed[K_LEFT]:
+            self.player.go_left()
+        if keys_pressed[K_RIGHT]:
+            self.player.go_right()
+
     def mainloop(self):
         while True:
             dt = self.clock.tick(FPS)
