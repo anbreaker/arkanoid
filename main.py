@@ -44,6 +44,8 @@ class Game:
             for i in range(16):
                 t = Tile(i*50, 60+j*32)
                 self.tileGroup.add(t)
+        
+        self.tileGroup = Map(level1)
         self.allSprites.add(self.tileGroup)
         self.allSprites.add(self.player)
         self.allSprites.add(self.ball)

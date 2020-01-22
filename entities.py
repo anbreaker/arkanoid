@@ -4,6 +4,17 @@ from random import choice, randint
 
 FPS = 60
 
+
+
+class Map:
+    def __init__(self, strmap):
+        self.group = sprite.Group()
+
+        <Toda la logica de creacion de los tiles, su posicion y agruparlos>
+
+        return self.group
+
+
 class Racket(pg.sprite.Sprite):
     pictures = 'racket_horizontal.png'
     speed = 10
@@ -85,7 +96,6 @@ class Ball(pg.sprite.Sprite):
             self.dy *= -1
             self.ping.play()
         return nC
-
 
 class Tile(pg.sprite.Sprite):
     w = 50
