@@ -17,7 +17,9 @@ class Game:
         self.player = Racket()
         self.ball = Ball()
 
+        self.playerGroup = pg.sprite.Group()
         self.allSprites = pg.sprite.Group()
+        self.playerGroup.add(self.player)
         self.allSprites.add(self.player)
         self.allSprites.add(self.ball)
 
@@ -47,6 +49,15 @@ class Game:
             dt = self.clock.tick(FPS)
 
             self.handleEvents()
+
+            self.ball.test_collision(self.playerGroup)
+            
+            if self.ball.speed == 0:
+                self.player.lives -= 1
+                self.ball.start()
+
+            if self.player.lives == 0:
+                self.gameOver()
 
             self.screen.blit(self.background_img, (0,0))
 
