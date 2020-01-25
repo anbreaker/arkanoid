@@ -169,7 +169,7 @@ class Game:
             if self.player.lives > 0 and len(self.tileGroup) != 0:
                 self.bucle_partida(dt)
 
-            elif self.niveles == 5 and len(self.tileGroup) == 0:
+            elif self.niveles == len(nivel) and len(self.tileGroup) == 0:
                 self.gameEnd()
 
             elif len(self.tileGroup) == 0:
