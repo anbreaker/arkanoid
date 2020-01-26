@@ -27,14 +27,16 @@ class Game:
 
         self.background_img = pg.image.load('resources/background_1.png').convert()
 
-        self.fontGran = pg.font.Font('resources/fonts/PressStart2P.ttf', 25)
-        self.font = pg.font.Font('resources/fonts/PressStart2P.ttf', 20)
-        self.text_nivel = self.font.render('Level', True, WHITE)
-        self.label_level = self.font.render('1', True, WHITE)
-        self.text_marcador = self.font.render('Score', True, WHITE)
-        self.marcador = self.font.render('0', True, WHITE)
-        self.text_lives = self.font.render('Lives', True, WHITE)
-        self.livescounter = self.font.render('0', True, WHITE)
+        self.fontGran = pg.font.Font('resources/fonts/PressStart2P.ttf', 30)
+        self.font = pg.font.Font('resources/fonts/PressStart2P.ttf', 25)
+        self.fontSmall = pg.font.Font('resources/fonts/PressStart2P.ttf', 15)
+
+        self.text_nivel = self.fontSmall.render('Level', True, WHITE)
+        self.label_level = self.fontSmall.render('1', True, WHITE)
+        self.text_marcador = self.fontSmall.render('Score', True, WHITE)
+        self.marcador = self.fontSmall.render('0', True, WHITE)
+        self.text_lives = self.fontSmall.render('Lives', True, WHITE)
+        self.livescounter = self.fontSmall.render('0', True, WHITE)
         self.text_game_over = self.fontGran.render('GAME OVER', True, YELLOW)
         self.text_insert_coin = self.font.render('<SPACE> - Insert coin', True, WHITE)
         self.text_congratulations = self.fontGran.render('LEVEL COMPLETED', True, YELLOW)
@@ -191,19 +193,19 @@ class Game:
             self.player.lives -= 1
             self.ball.start()
 
-        self.livescounter = self.font.render(str(self.player.lives), True, WHITE)
-        self.marcador = self.font.render(str(self.score), True, WHITE)
-        self.label_level = self.font.render(str(self.niveles), True, WHITE)
+        self.livescounter = self.fontSmall.render(str(self.player.lives), True, WHITE)
+        self.marcador = self.fontSmall.render(str(self.score), True, WHITE)
+        self.label_level = self.fontSmall.render(str(self.niveles), True, WHITE)
         self.screen.blit(self.background_img, (0,0))
 
         self.allSprites.update(dt)
         self.allSprites.draw(self.screen)
 
         self.screen.blit(self.text_lives, (10, 10))
-        self.screen.blit(self.livescounter, (120, 10))
+        self.screen.blit(self.livescounter, (100, 10))
         self.screen.blit(self.text_nivel, (350, 10))
-        self.screen.blit(self.label_level, (460, 10))
-        self.screen.blit(self.text_marcador, (620, 10))
+        self.screen.blit(self.label_level, (440, 10))
+        self.screen.blit(self.text_marcador, (650, 10))
         self.screen.blit(self.marcador, (735, 10))
 
 
